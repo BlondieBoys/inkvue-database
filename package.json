@@ -1,0 +1,25 @@
+{
+  "name": "inkvue-database",
+  "version": "1.0.0",
+  "description": "manages database driver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seedDB": ". ./env.sh && npx ts-node utils/seed.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.17.0",
+    "@types/chance": "^1.1.6",
+    "chance": "^1.1.12",
+    "mongodb": "^6.3.0",
+    "winston": "^3.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "prisma": "^5.17.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
