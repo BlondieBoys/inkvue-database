@@ -1,13 +1,13 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+import { MongoClient, ServerApiVersion } from "mongodb";
 
-async function listDatabases(client) {
-  databasesList = await client.db().admin().listDatabases();
+async function listDatabases(client: MongoClient) {
+  const databasesList = await client.db().admin().listDatabases();
 
   console.log("Databases:");
   databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
 }
 
-async function main() {
+async function main(): Promise<void> {
   const uri = `mongodb+srv://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@cluster0.fgijrz4.mongodb.net/?retryWrites=true&w=majority`;
 
   const client = new MongoClient(uri, {
