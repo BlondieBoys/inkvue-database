@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "seedDB": ". ./env.sh && npx prisma generate && npx ts-node utils/seed.ts",
-    "build": "npx tsc"
+    "build": "npx prisma generate && npx tsc"
   },
   "author": "",
   "license": "ISC",

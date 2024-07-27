@@ -2,9 +2,10 @@ import { User } from "@prisma/client";
 import Chance from "chance";
 import { logger } from "./logger";
 import { ObjectId } from "mongodb";
-import { prisma } from "../dist/prisma/prisma";
+import { PrismaClient } from "../dist/prisma/index";
 
 const chance = new Chance();
+const prisma = new PrismaClient();
 
 interface SeedUser extends Omit<User, "role"> {}
 
