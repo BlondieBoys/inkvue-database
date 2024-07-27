@@ -2,11 +2,11 @@
   "name": "inkvue-database",
   "version": "1.0.0",
   "description": "manages database driver",
-  "main": "dist/prisma/prisma.ts",
-  "types": "dist/prisma/prisma.d.ts",
+  "types": "dist",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seedDB": ". ./env.sh && npx ts-node utils/seed.ts"
+    "seedDB": ". ./env.sh && npx prisma generate && npx ts-node utils/seed.ts",
+    "build": "npx tsc"
   },
   "author": "",
   "license": "ISC",

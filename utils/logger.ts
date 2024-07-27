@@ -24,4 +24,10 @@ if (process.env.NODE_ENV !== "production") {
       format: format.combine(format.colorize(), format.simple()),
     })
   );
+  logger.add(
+    new transports.Console({
+      level: "info",
+      format: format.combine(format.colorize(), format.simple()),
+    })
+  );
 }

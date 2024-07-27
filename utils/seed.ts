@@ -2,7 +2,7 @@ import { User } from "@prisma/client";
 import Chance from "chance";
 import { logger } from "./logger";
 import { ObjectId } from "mongodb";
-import { prisma } from "../prisma/prisma";
+import { prisma } from "../dist/prisma/prisma";
 
 const chance = new Chance();
 
