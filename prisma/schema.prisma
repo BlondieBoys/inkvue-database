@@ -20,9 +20,36 @@ enum Role {
 }
 
 model User {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  email     String @unique
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  email     String  @unique
   firstName String
   lastName  String
-  role      Role   @default(USER)
+  role      Role    @default(USER)
+  artist    Artist?
+}
+
+model Artist {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  email      String    @unique
+  userId     String    @unique @db.ObjectId
+  businessId String?   @unique @db.ObjectId
+  bussiness  Business? @relation(fields: [businessId], references: [id])
+  user       User      @relation(fields: [userId], references: [id])
+}
+
+model Business {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  address   Address?
+  employees Artist[]
+}
+
+model Address {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  addressLine1 String
+  city         String
+  state        String
+  country      String   @default("US")
+  businessId   String   @unique @db.ObjectId
+  bussiness    Business @relation(fields: [businessId], references: [id])
 }
