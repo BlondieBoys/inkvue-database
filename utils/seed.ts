@@ -37,8 +37,8 @@ const generateUsers = () => {
         data: {
           id: new ObjectId().toHexString(),
           email: chance.email(),
-          firstName: chance.name(),
-          lastName: chance.name(),
+          firstName: chance.first(),
+          lastName: chance.last(),
           artist: {
             create: {
               email: chance.email()
